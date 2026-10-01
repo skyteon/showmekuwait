@@ -426,23 +426,6 @@ section { padding: 7rem 2rem; }
 }
 
 
-/* Film series cards */
-.series { margin-top: 4.5rem; }
-.series-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.series-card {
-  display: block;
-  text-decoration: none;
-  border: 1px solid var(--divider-dark);
-  background: rgba(255,255,255,0.02);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-.series-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
-.series-img { aspect-ratio: 16 / 10; background-size: cover; background-position: center; background-color: var(--bg-dark-alt); }
-.series-body { padding: 1.5rem 1.6rem 1.8rem; }
-.series-tag { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 0.5rem; }
-.series-body h4 { font-size: 1.25rem; color: var(--white); margin-bottom: 0.5rem; }
-.series-body p:last-child { font-size: 0.86rem; line-height: 1.65; color: var(--text-muted-dark); }
-
 /* ===== EXECUTION ===== */
 .execution { background: var(--bg); border-top: 1px solid var(--divider); }
 .exec-header { max-width: 620px; margin-bottom: 4rem; }
@@ -658,7 +641,6 @@ section p.label {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1000px) {
   .work-grid { grid-template-columns: 1fr; }
-  .series-grid { grid-template-columns: 1fr 1fr; }
   .journey-steps { grid-template-columns: 1fr; }
   .journey-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
 }
@@ -689,7 +671,6 @@ section p.label {
   .opp-card { padding: 1.8rem; }
   .cta { padding: 5rem 1rem; }
   .cta-contacts { gap: 1.5rem; }
-  .series-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -858,7 +839,7 @@ section p.label {
         <div class="work-stats">
           <a class="work-stat work-stat-link" href="https://showmeturkiye.com/projects" target="_blank" rel="noopener">
             <div class="work-stat-num serif">25</div>
-            <div class="work-stat-text">Films and travel episodes in three series, on Our Projects</div>
+            <div class="work-stat-text">Films and episodes in three series: Show Me Türkiye, Skies of Türkiye and Let Me Show You Türkiye</div>
           </a>
           <a class="work-stat work-stat-link" href="https://showmeturkiye.com/explore" target="_blank" rel="noopener">
             <div class="work-stat-num serif">26</div>
@@ -929,37 +910,6 @@ section p.label {
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="series reveal">
-      <p class="recog-title">Our film series</p>
-      <div class="series-grid">
-        <a class="series-card" href="https://www.youtube.com/playlist?list=PLcxpMEs-iETYOdLvk1dguRoVBMNC-_aT_" target="_blank" rel="noopener">
-          <div class="series-img" style="background-image:url('https://img.showmeturkiye.com/Projects/show-me-turkiye.jpg');"></div>
-          <div class="series-body">
-            <p class="series-tag">Flagship Series</p>
-            <h4 class="serif">Show Me Türkiye</h4>
-            <p>Cinematic destination films on Türkiye's cities, valleys and ancient sites, made with tourism authorities and municipalities.</p>
-          </div>
-        </a>
-        <a class="series-card" href="https://www.youtube.com/playlist?list=PLcxpMEs-iETb59wZfhuaSZ22l6CMhWE0p" target="_blank" rel="noopener">
-          <div class="series-img" style="background-image:url('https://img.showmeturkiye.com/Projects/skies-of-turkiye.jpg');"></div>
-          <div class="series-body">
-            <p class="series-tag">Aerial Series</p>
-            <h4 class="serif">Skies of Türkiye</h4>
-            <p>Türkiye's landscapes seen from above, from volcanic plateaus to turquoise coastlines.</p>
-          </div>
-        </a>
-        <a class="series-card" href="https://www.youtube.com/playlist?list=PLcxpMEs-iETam-PhSNCDG_tsX1w99rhVn" target="_blank" rel="noopener">
-          <div class="series-img" style="background-image:url('https://img.showmeturkiye.com/Projects/let-me-show-you-turkiye.jpg');"></div>
-          <div class="series-body">
-            <p class="series-tag">Travel Series</p>
-            <h4 class="serif">Let Me Show You Türkiye</h4>
-            <p>A personal journey through Türkiye's culture, food and people, filmed on the road.</p>
-          </div>
-        </a>
-      </div>
-      <p style="margin-top: 1.8rem;"><a href="https://showmeturkiye.com" target="_blank" rel="noopener" class="team-link" style="color: var(--gold-soft);">Visit showmeturkiye.com &rarr;</a></p>
     </div>
   </div>
 </section>
