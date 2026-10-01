@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Me Kuwait | International Film &amp; Creator Program</title>
+<meta name="description" content="Show Me Kuwait is an international film and creator program by Bekart that brings Kuwait's story to global travelers and points them to Visit Kuwait.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-alt: #F2F0EB;
+  --bg-dark: #1A1714;
+  --bg-dark-alt: #242019;
+  --brown: #5C3D2E;
+  --brown-deep: #2E1E14;
+  --gold: #B8860B;
+  --gold-soft: #C9971F;
+  --gold-bg: rgba(184, 134, 11, 0.06);
+  --gold-border: rgba(184, 134, 11, 0.2);
+  --sand: #D4C5A9;
+  --text: #3A332B;
+  --text-light: #6B6158;
+  --text-on-dark: #D4CEC4;
+  --text-muted-dark: #8A8279;
+  --white: #FFFFFF;
+  --divider: #E2DDD4;
+  --divider-dark: rgba(212, 197, 169, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.serif { font-family: 'DM Serif Display', Georgia, serif; }
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.3rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(26, 23, 20, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 0.9rem 2.5rem;
+}
+.nav-logo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold-soft); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold-soft); }
+
+/* ===== LAYOUT ===== */
+section { padding: 7rem 2rem; }
+.container { max-width: 1080px; margin: 0 auto; }
+.container-wide { max-width: 1200px; margin: 0 auto; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 70% 40%, rgba(184, 134, 11, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(92, 61, 46, 0.05) 0%, transparent 60%);
+}
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+.hero-text { max-width: 540px; }
+.hero-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-title {
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.35s forwards;
+}
+.hero-title em { color: var(--gold-soft); font-style: italic; }
+.hero-desc {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-on-dark);
+  margin-bottom: 2.5rem;
+  max-width: 470px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.5s forwards;
+}
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.65s forwards;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+.btn-gold { background: var(--gold); color: var(--white); }
+.btn-gold:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(184, 134, 11, 0.25);
+}
+.btn-ghost {
+  color: var(--sand);
+  border: 1px solid rgba(212, 197, 169, 0.3);
+  background: transparent;
+}
+.btn-ghost:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
+
+.hero-visual {
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.5s forwards;
+}
+.hero-stats-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+  margin-bottom: 1rem;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.hero-stat {
+  padding: 2rem;
+  border: 1px solid var(--divider-dark);
+  background: rgba(255,255,255,0.02);
+  transition: all 0.3s ease;
+}
+.hero-stat:hover { border-color: var(--gold-border); background: var(--gold-bg); }
+.hero-stat-num {
+  font-size: 2.2rem;
+  color: var(--gold-soft);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.hero-stat-text {
+  font-size: 0.8rem;
+  color: var(--text-muted-dark);
+  line-height: 1.5;
+}
+
+/* ===== OPPORTUNITY ===== */
+.opportunity { background: var(--bg); border-top: 1px solid var(--divider); }
+.opp-header { max-width: 680px; margin-bottom: 4rem; }
+.opp-header h2, .what-header h2, .exec-header h2, .work-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--brown-deep);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.opp-header p, .what-header p, .work-header p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+.opp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.opp-card {
+  padding: 2.5rem;
+  background: var(--white);
+  border: 1px solid var(--divider);
+  transition: all 0.35s ease;
+}
+.opp-card:hover { border-color: var(--gold-border); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+.opp-card-num {
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+.opp-card h3 {
+  font-size: 1.15rem;
+  color: var(--brown-deep);
+  margin-bottom: 0.8rem;
+}
+.opp-card p { font-size: 0.92rem; line-height: 1.7; color: var(--text-light); }
+
+/* Journey flow */
+.journey {
+  padding: 3rem;
+  background: var(--bg-dark);
+  margin-top: 2rem;
+}
+.journey h3 { font-size: 1.4rem; color: var(--white); margin-bottom: 0.8rem; }
+.journey > p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-on-dark);
+  max-width: 760px;
+}
+.journey-steps {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+.journey-step {
+  padding: 1.8rem;
+  border: 1px solid var(--divider-dark);
+  background: rgba(255,255,255,0.02);
+}
+.journey-step.highlight { border-color: var(--gold-border); background: rgba(184,134,11,0.06); }
+.journey-step-tag {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 0.6rem;
+}
+.journey-step h4 { font-size: 1.1rem; color: var(--white); margin-bottom: 0.4rem; }
+.journey-step p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted-dark); }
+.journey-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  font-size: 1.2rem;
+}
+
+/* ===== WHAT IS SMK ===== */
+.what { background: var(--bg-alt); border-top: 1px solid var(--divider); }
+.what-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.pillar {
+  padding: 3rem 2rem;
+  border: 1px solid var(--divider);
+  margin-left: -1px;
+  background: var(--white);
+  transition: all 0.4s ease;
+  position: relative;
+}
+.pillar:first-child { margin-left: 0; }
+.pillar:hover { background: var(--gold-bg); z-index: 1; }
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+.pillar h3 {
+  font-size: 1.1rem;
+  color: var(--brown-deep);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+.pillar p { font-size: 0.88rem; line-height: 1.7; color: var(--text-light); }
+
+/* ===== OUR WORK ===== */
+.work { background: var(--bg-dark); border-top: 1px solid var(--divider-dark); }
+.work-header { max-width: 720px; margin-bottom: 3.5rem; }
+.work-header h2 { color: var(--white); }
+.work-header p { color: var(--text-on-dark); }
+.work-header a { color: var(--gold-soft); text-decoration: none; border-bottom: 1px solid var(--gold-border); }
+.work-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--divider-dark);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-caption {
+  font-size: 0.8rem;
+  color: var(--text-muted-dark);
+  margin-top: 0.8rem;
+}
+.work-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.work-stat {
+  padding: 1.2rem;
+  border: 1px solid var(--divider-dark);
+}
+.work-stat-num { font-size: 1.7rem; color: var(--gold-soft); line-height: 1; margin-bottom: 0.4rem; }
+.work-stat-text { font-size: 0.75rem; color: var(--text-muted-dark); line-height: 1.45; }
+
+.recog-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 1rem;
+}
+.recog-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.recog-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--divider-dark);
+}
+.recog-item:last-child { border-bottom: 1px solid var(--divider-dark); }
+.recog-year { font-size: 0.8rem; font-weight: 600; color: var(--sand); }
+.recog-award { font-size: 0.95rem; color: var(--white); margin-bottom: 0.15rem; }
+.recog-meta { font-size: 0.8rem; line-height: 1.55; color: var(--text-muted-dark); }
+.recog-meta a { color: var(--text-on-dark); text-decoration: none; border-bottom: 1px solid var(--divider-dark); }
+.recog-meta a:hover { color: var(--gold-soft); }
+
+.partners { margin-top: 2.5rem; }
+.partner-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.6rem; }
+.partner {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--divider-dark);
+}
+
+/* ===== EXECUTION ===== */
+.execution { background: var(--bg); border-top: 1px solid var(--divider); }
+.exec-header { max-width: 620px; margin-bottom: 4rem; }
+.exec-header p { font-size: 1rem; line-height: 1.75; color: var(--text-light); }
+.timeline { position: relative; padding-left: 3rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--divider));
+}
+.tl-item { position: relative; padding: 0 0 3.5rem 2.5rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -3.35rem;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bg);
+}
+.tl-phase {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.tl-item h3 { font-size: 1.2rem; color: var(--brown-deep); margin-bottom: 0.6rem; }
+.tl-item p { font-size: 0.92rem; line-height: 1.75; color: var(--text-light); max-width: 620px; }
+
+/* ===== VISION 2035 ===== */
+.vision {
+  background: var(--bg-dark);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.vision::before {
+  content: '2035';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(8rem, 18vw, 16rem);
+  color: rgba(184, 134, 11, 0.03);
+  pointer-events: none;
+}
+.vision h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.vision .container > .reveal > p:not(.label) {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-on-dark);
+  max-width: 650px;
+  margin: 0 auto 4rem;
+}
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+  position: relative;
+}
+.vision-card { padding: 2rem; border: 1px solid var(--divider-dark); transition: all 0.3s ease; }
+.vision-card:hover { border-color: var(--gold-border); background: rgba(184,134,11,0.04); }
+.vision-card h4 { font-size: 1rem; color: var(--gold-soft); margin-bottom: 0.5rem; }
+.vision-card p { font-size: 0.85rem; line-height: 1.65; color: var(--text-muted-dark); }
+
+/* ===== TEAM ===== */
+.team { background: var(--bg-alt); border-top: 1px solid var(--divider); }
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.team-left h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--brown-deep);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.team-left p { font-size: 0.95rem; line-height: 1.8; color: var(--text-light); margin-bottom: 1rem; }
+.team-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+.team-right { display: flex; flex-direction: column; gap: 1rem; }
+.team-card {
+  padding: 1.8rem 2rem;
+  border: 1px solid var(--divider);
+  background: var(--white);
+}
+.team-card h4 { font-size: 1.02rem; color: var(--brown-deep); margin-bottom: 0.35rem; }
+.team-card p { font-size: 0.88rem; line-height: 1.65; color: var(--text-light); }
+
+/* ===== CTA ===== */
+.cta {
+  background: var(--bg-dark);
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+}
+.cta-content { position: relative; z-index: 1; }
+.cta h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 0.8rem; }
+.cta-sub {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-on-dark);
+  margin: 0 auto 2.5rem;
+  max-width: 620px;
+}
+.cta-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.cta-contact span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 0.3rem;
+}
+.cta-contact a {
+  font-size: 0.95rem;
+  color: var(--text-on-dark);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.cta-contact a:hover { color: var(--gold-soft); }
+
+/* ===== SOURCES ===== */
+.sources { background: var(--bg-alt); border-top: 1px solid var(--divider); padding: 4rem 2rem; }
+.sources h3 { font-size: 1.1rem; color: var(--brown-deep); margin-bottom: 1.5rem; }
+.sources-list { display: flex; flex-direction: column; gap: 0.7rem; }
+.source-item {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  padding-left: 1.2rem;
+  position: relative;
+}
+.source-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.source-item a { color: var(--gold); text-decoration: none; }
+.source-item a:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--divider-dark);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+footer p {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+}
+footer a { color: var(--gold-soft); text-decoration: none; }
+
+/* Section labels keep their gold style inside header blocks */
+section p.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 1.6;
+  color: var(--gold);
+  margin: 0 0 0.8rem;
+}
+.work p.label, .vision p.label, .cta p.label { color: var(--gold-soft); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .journey-steps { grid-template-columns: 1fr; }
+  .journey-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+}
+@media (max-width: 900px) {
+  .nav { padding: 1.1rem 1.5rem; }
+  .nav.scrolled { padding: 0.8rem 1.5rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem 3rem; }
+  .hero { min-height: auto; padding: 2rem 0; }
+  .opp-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .pillar { margin-left: 0; margin-top: -1px; }
+  .vision-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.5rem; }
+  .journey { padding: 2rem 1.5rem; }
+  .work-stats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  section { padding: 4rem 1rem; }
+  .hero-grid { padding: 6rem 1rem 3rem; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .hero-stat { padding: 1.3rem; }
+  .hero-stat-num { font-size: 1.8rem; }
+  .vision-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
+  .opp-card { padding: 1.8rem; }
+  .cta { padding: 5rem 1rem; }
+  .cta-contacts { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo">SHOW ME <span>KUWAIT</span></a>
+  <ul class="nav-links">
+    <li><a href="#opportunity">Opportunity</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#plan">Plan</a></li>
+    <li><a href="#team">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="hero-label">International Film &amp; Creator Program</p>
+      <h1 class="hero-title serif">
+        Taking Kuwait's story <em>to the world</em>
+      </h1>
+      <p class="hero-desc">
+        Show Me Kuwait is an English-language film and creator program that introduces Kuwait to international travelers, then sends them to Visit Kuwait to plan their trip. Built by the team behind the award-winning Show Me Türkiye.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-gold">See Our Work</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <p class="hero-stats-label">Show Me Türkiye in numbers</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num serif">5</div>
+          <div class="hero-stat-text">Cinematic destination films produced</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num serif">4</div>
+          <div class="hero-stat-text">International tourism film festival awards</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num serif">25+</div>
+          <div class="hero-stat-text">In-depth English city guides on showmeturkiye.com</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num serif">330K+</div>
+          <div class="hero-stat-text">Followers across the founder's travel channels</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section class="opportunity" id="opportunity">
+  <div class="container">
+    <div class="opp-header reveal">
+      <p class="label">The Opportunity</p>
+      <h2 class="serif">Kuwait has built the gateway. Now the world needs the story.</h2>
+      <p>Coastline, heritage, gastronomy, desert landscapes and a deep tradition of hospitality. Kuwait has the raw material of a memorable destination, and with Visit Kuwait it now has a national platform to welcome visitors. The next step is reaching travelers who have not yet imagined Kuwait as a place to go.</p>
+    </div>
+
+    <div class="opp-grid reveal">
+      <div class="opp-card">
+        <div class="opp-card-num serif">01</div>
+        <h3 class="serif">The Infrastructure Is in Place</h3>
+        <p>The Visit Kuwait platform brings e-visas, itineraries, events and offers together under one national brand, and the new terminal at Kuwait International Airport will expand capacity. Kuwait is ready to receive more international visitors.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card-num serif">02</div>
+        <h3 class="serif">Travelers Choose With Their Hearts First</h3>
+        <p>A destination is chosen emotionally long before it is planned. For many travelers in Europe, Asia and the Americas, Kuwait does not yet have a picture attached to its name. Cinematic storytelling creates that picture.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card-num serif">03</div>
+        <h3 class="serif">Stories Travel Further Through People</h3>
+        <p>Independent films and trusted creators reach audiences that official channels alone rarely reach. Visit Saudi's creator program, with more than 300 creators and over 240 million people reached, showed how quickly perception can shift.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card-num serif">04</div>
+        <h3 class="serif">Vision 2035 Invites Partnership</h3>
+        <p>Kuwait's national development plan identifies tourism as a pillar of diversification and calls for private-sector partners in media and content. Show Me Kuwait is designed to be one of those partners.</p>
+      </div>
+    </div>
+
+    <div class="journey reveal">
+      <h3 class="serif">How Show Me Kuwait fits</h3>
+      <p>Show Me Kuwait does not replace the national platform. It works in front of it, bringing new international audiences into the funnel that Visit Kuwait already serves.</p>
+      <div class="journey-steps">
+        <div class="journey-step highlight">
+          <div class="journey-step-tag">Inspire</div>
+          <h4 class="serif">Show Me Kuwait</h4>
+          <p>Cinematic films, creator journeys and social content reach travelers around the world in English.</p>
+        </div>
+        <div class="journey-arrow" aria-hidden="true">&rarr;</div>
+        <div class="journey-step">
+          <div class="journey-step-tag">Plan</div>
+          <h4 class="serif">Visit Kuwait</h4>
+          <p>Interested travelers are directed to the national platform for visas, itineraries, events and offers.</p>
+        </div>
+        <div class="journey-arrow" aria-hidden="true">&rarr;</div>
+        <div class="journey-step">
+          <div class="journey-step-tag">Arrive</div>
+          <h4 class="serif">Kuwait</h4>
+          <p>Visitors fly in, stay in Kuwaiti hotels and experience the country for themselves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="what" id="program">
+  <div class="container-wide">
+    <div class="what-header reveal">
+      <p class="label">The Program</p>
+      <h2 class="serif">What Show Me Kuwait delivers</h2>
+      <p>Not a single campaign, but a long-term content program with four parts that work together and point travelers to Kuwait's national gateway.</p>
+    </div>
+
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="pillar-icon">◎</div>
+        <h3 class="serif">Cinematic Destination Films</h3>
+        <p>Flagship films and short series on Kuwait's coastline, heritage, food and people, made to the standard that has won awards at international tourism film festivals.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◉</div>
+        <h3 class="serif">International Creator Program</h3>
+        <p>Travel creators from Europe, Asia, the Americas and the Middle East experience Kuwait firsthand and share it with their own audiences, alongside Kuwaiti creators.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◈</div>
+        <h3 class="serif">Social Media Channel</h3>
+        <p>A dedicated @showmekuwait presence publishing regular English-language content, building a global community that sees Kuwait as a place worth discovering.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◆</div>
+        <h3 class="serif">Inspiration Guides</h3>
+        <p>English editorial guides on showmekuwait.com that answer what international travelers search for, and link them to Visit Kuwait for visas, bookings and events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section class="work" id="work">
+  <div class="container-wide">
+    <div class="work-header reveal">
+      <p class="label">Proof of Concept</p>
+      <h2 class="serif">We have done this before, with Show Me Türkiye</h2>
+      <p>Show Me Türkiye is our English-language cinematic travel project for Türkiye: a series of destination films made with tourism authorities and municipalities, and a travel platform at <a href="https://showmeturkiye.com" target="_blank" rel="noopener">showmeturkiye.com</a>. Show Me Kuwait applies the same method to Kuwait.</p>
+    </div>
+
+    <div class="work-grid">
+      <div class="reveal">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/IxfJr92fJdg?rel=0" title="Show Me Antalya" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Show Me Antalya, award winner at international tourism film festivals in 2026.</p>
+        <div class="work-stats">
+          <div class="work-stat">
+            <div class="work-stat-num serif">5</div>
+            <div class="work-stat-text">Destination films</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">25+</div>
+            <div class="work-stat-text">City guides</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">16</div>
+            <div class="work-stat-text">Long-form travel articles</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">6</div>
+            <div class="work-stat-text">Multi-day route plans</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="recog-title">Selected Recognition</p>
+        <ul class="recog-list">
+          <li class="recog-item">
+            <div class="recog-year">2026</div>
+            <div>
+              <p class="recog-award">Award Winner</p>
+              <p class="recog-meta">Finisterra Film Art &amp; Tourism Festival, Portugal. Film: Show Me Antalya</p>
+            </div>
+          </li>
+          <li class="recog-item">
+            <div class="recog-year">2026</div>
+            <div>
+              <p class="recog-award">Award Winner</p>
+              <p class="recog-meta">Art &amp; Travel International Film Festival, Tbilisi, Georgia. Film: Show Me Antalya</p>
+            </div>
+          </li>
+          <li class="recog-item">
+            <div class="recog-year">2024</div>
+            <div>
+              <p class="recog-award">Second Place, Travel Promo</p>
+              <p class="recog-meta">Art &amp; Travel International Film Festival, Tbilisi, Georgia. Film: <a href="https://www.youtube.com/watch?v=GBil27OsaFc" target="_blank" rel="noopener">Show Me Türkiye: Rize</a></p>
+            </div>
+          </li>
+          <li class="recog-item">
+            <div class="recog-year">2022</div>
+            <div>
+              <p class="recog-award">Best Tourism Film, City Category</p>
+              <p class="recog-meta">7th International Tourism Films Festival, Gaziantep, Türkiye. Film: <a href="https://www.youtube.com/watch?v=XC1klonfzNU" target="_blank" rel="noopener">Show Me Türkiye: Kocaeli</a>, made for Kocaeli Metropolitan Municipality</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="partners">
+          <p class="recog-title">Tourism partners</p>
+          <div class="partner-row">
+            <span class="partner">GoTürkiye</span>
+            <span class="partner">Ministry of Culture &amp; Tourism of Türkiye</span>
+            <span class="partner">Kocaeli Metropolitan Municipality</span>
+            <span class="partner">Kemer Municipality</span>
+          </div>
+          <p class="recog-title" style="margin-top: 1.5rem;">Brand work</p>
+          <div class="partner-row">
+            <span class="partner">Samsung</span>
+            <span class="partner">DJI</span>
+            <span class="partner">Adobe</span>
+            <span class="partner">Columbia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="execution" id="plan">
+  <div class="container">
+    <div class="exec-header reveal">
+      <p class="label">From Vision to Execution</p>
+      <h2 class="serif">How we bring it to life</h2>
+      <p>A phased plan that starts with a single flagship film and grows into a sustained international presence, developed together with Kuwait's tourism stakeholders.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 01</div>
+        <h3 class="serif">Discover</h3>
+        <p>Time on the ground in Kuwait with the tourism team and local partners: its neighborhoods, coastline, islands, desert, cuisine and people. We define the story Kuwait wants to tell and the international audiences it wants to reach.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 02</div>
+        <h3 class="serif">Flagship Film</h3>
+        <p>A cinematic Show Me Kuwait film that captures the country's character in a few minutes, made to travel online and to compete at international tourism film festivals.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 03</div>
+        <h3 class="serif">Content Library</h3>
+        <p>Short-form videos, photography, location stories and English guides on gastronomy, heritage and experiences. A library that Visit Kuwait, airlines and hotels can also use in their own channels.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 04</div>
+        <h3 class="serif">Creator Program</h3>
+        <p>International travel creators are hosted in Kuwait in planned journeys with hotel and airline partners, producing authentic content for audiences in their home markets.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 05</div>
+        <h3 class="serif">Distribution</h3>
+        <p>Consistent publishing on @showmekuwait and showmekuwait.com, festival submissions, media partnerships and presence alongside Kuwait at international tourism fairs. Every piece points travelers to Visit Kuwait.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-phase">Phase 06</div>
+        <h3 class="serif">Measure &amp; Expand</h3>
+        <p>Regular reports on reach, engagement and traffic sent to Visit Kuwait, followed by seasonal campaigns, themed series and event coverage that keep Kuwait in front of international travelers year after year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION 2035 -->
+<section class="vision">
+  <div class="container">
+    <div class="reveal">
+      <p class="label">Strategic Alignment</p>
+      <h2 class="serif">Built for Kuwait Vision 2035</h2>
+      <p>Show Me Kuwait is a private-sector initiative designed to support Kuwait's national development goals and the work already under way through Visit Kuwait.</p>
+    </div>
+    <div class="vision-grid reveal">
+      <div class="vision-card">
+        <h4 class="serif">Economic Diversification</h4>
+        <p>Builds international interest in Kuwait as a destination, supporting non-oil revenue from tourism.</p>
+      </div>
+      <div class="vision-card">
+        <h4 class="serif">Global Awareness</h4>
+        <p>Gives Kuwait a clear, emotional image in markets where it is not yet known as a place to visit.</p>
+      </div>
+      <div class="vision-card">
+        <h4 class="serif">Strengthens Visit Kuwait</h4>
+        <p>Every film, guide and creator journey directs new audiences to the national platform.</p>
+      </div>
+      <div class="vision-card">
+        <h4 class="serif">Private Sector Partnership</h4>
+        <p>Brings proven expertise in destination film, content and creator marketing to Kuwait's tourism effort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-grid">
+      <div class="team-left reveal">
+        <p class="label">Who We Are</p>
+        <h2 class="serif">Bekart, destination film &amp; new media</h2>
+        <p>Bekart is a destination content agency founded and led by Halil Bekar, a director and cinematographer who created Show Me Türkiye and has spent close to a decade making travel films for tourism authorities and global brands.</p>
+        <p>We combine film production, digital strategy, social media and creator marketing into programs that change how the world sees a place, and we measure them by the audiences they reach.</p>
+        <p style="margin-top: 1.5rem;"><a href="https://bekart.co" target="_blank" rel="noopener" class="team-link">See our work at bekart.co &rarr;</a></p>
+      </div>
+      <div class="team-right reveal">
+        <div class="team-card">
+          <h4 class="serif">Award-winning films</h4>
+          <p>Destination films recognized at international tourism film festivals in Türkiye, Georgia and Portugal.</p>
+        </div>
+        <div class="team-card">
+          <h4 class="serif">Public sector experience</h4>
+          <p>Long-term work with GoTürkiye, the Ministry of Culture and Tourism of Türkiye and municipal tourism offices.</p>
+        </div>
+        <div class="team-card">
+          <h4 class="serif">Global brand standards</h4>
+          <p>Content production for Samsung, DJI, Adobe, Columbia and other international brands.</p>
+        </div>
+        <div class="team-card">
+          <h4 class="serif">An audience and a network</h4>
+          <p>An international travel audience of more than 330,000 followers, and a creator network across every major market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-content">
+    <div class="reveal">
+      <p class="label">Let's Begin</p>
+      <h2 class="serif">Kuwait's story is waiting to be told</h2>
+      <p class="cta-sub">We would welcome the opportunity to present Show Me Kuwait to Kuwait's tourism stakeholders, in Kuwait or online.</p>
+      <a href="mailto:info@bekart.co?subject=Show%20Me%20Kuwait" class="btn btn-gold">Start the Conversation</a>
+    </div>
+    <div class="cta-contacts reveal">
+      <div class="cta-contact">
+        <span>Email</span>
+        <a href="mailto:info@bekart.co">info@bekart.co</a>
+      </div>
+      <div class="cta-contact">
+        <span>Instagram</span>
+        <a href="https://instagram.com/bekart.co" target="_blank" rel="noopener">@bekart.co</a>
+      </div>
+      <div class="cta-contact">
+        <span>Website</span>
+        <a href="https://bekart.co" target="_blank" rel="noopener">bekart.co</a>
+      </div>
+      <div class="cta-contact">
+        <span>Phone</span>
+        <a href="tel:+905442789128">+90 544 278 91 28</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources">
+  <div class="container">
+    <h3 class="serif">Sources &amp; References</h3>
+    <div class="sources-list">
+      <div class="source-item"><strong>Visit Kuwait national platform</strong>: Kuwait Times, "Kuwait unveils 'Leadership Through Willpower' campaign, 'Visit Kuwait' tourism platform"; Gulf News, "'Visit Kuwait' platform now live to streamline e-visas for travelers"</div>
+      <div class="source-item"><strong>New Kuwait International Airport terminal</strong>: Hospitality News Middle East, coverage of the Kuwait Tourism Forum 2026</div>
+      <div class="source-item"><strong>Kuwait Vision 2035 and tourism</strong>: Oxford Business Group, The Report: Kuwait 2025, Tourism, Culture &amp; Sport</div>
+      <div class="source-item"><strong>Visit Saudi creator program</strong>: The Drum / Influencer.com case study, 300+ creators, 240M+ reach (2022 to 2023)</div>
+      <div class="source-item"><strong>Show Me Türkiye recognition</strong>: <a href="https://showmeturkiye.com/about" target="_blank" rel="noopener">showmeturkiye.com/about</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <a href="https://bekart.co">Bekart</a> &middot; Show Me Kuwait</p>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"2cee5718d8814f14925a2eb3c572f261","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
