@@ -218,6 +218,7 @@ section { padding: 7rem 2rem; }
   line-height: 1;
   margin-bottom: 0.5rem;
 }
+.hero-stat-title { font-size: 1.3rem; line-height: 1.2; margin-bottom: 0.7rem; }
 .hero-stat-text {
   font-size: 0.8rem;
   color: var(--text-muted-dark);
@@ -658,9 +659,10 @@ section p.label {
 @media (max-width: 560px) {
   section { padding: 4rem 1rem; }
   .hero-grid { padding: 6rem 1rem 3rem; }
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .hero-stats { grid-template-columns: 1fr; gap: 0.8rem; }
   .hero-stat { padding: 1.3rem; }
   .hero-stat-num { font-size: 1.8rem; }
+  .hero-stat-title { font-size: 1.1rem; }
   .vision-grid { grid-template-columns: 1fr; }
   .pillars { grid-template-columns: 1fr; }
   .opp-card { padding: 1.8rem; }
@@ -701,23 +703,23 @@ section p.label {
       </div>
     </div>
     <div class="hero-visual">
-      <p class="hero-stats-label">Show Me Türkiye in numbers</p>
+      <p class="hero-stats-label">What Kuwait receives</p>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-num serif">5</div>
-          <div class="hero-stat-text">Cinematic destination films produced</div>
+          <div class="hero-stat-num hero-stat-title serif">A Flagship Film</div>
+          <div class="hero-stat-text">A cinematic film on Kuwait, made to travel online and compete at international tourism film festivals.</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num serif">4</div>
-          <div class="hero-stat-text">International tourism film festival awards</div>
+          <div class="hero-stat-num hero-stat-title serif">Creator Journeys</div>
+          <div class="hero-stat-text">International travel creators hosted in Kuwait, reaching audiences in their home markets.</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num serif">25+</div>
-          <div class="hero-stat-text">In-depth English city guides on showmeturkiye.com</div>
+          <div class="hero-stat-num hero-stat-title serif">An English Story Hub</div>
+          <div class="hero-stat-text">Guides and stories for global travelers, each one pointing readers to Visit Kuwait.</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num serif">330K+</div>
-          <div class="hero-stat-text">Followers across Halil's travel channels</div>
+          <div class="hero-stat-num hero-stat-title serif">Measured Results</div>
+          <div class="hero-stat-text">Regular reports on reach, engagement and traffic sent to the national platform.</div>
         </div>
       </div>
     </div>
@@ -833,22 +835,64 @@ section p.label {
         <p class="video-caption">Show Me Antalya, award winner at international tourism film festivals in 2026.</p>
         <div class="work-stats">
           <div class="work-stat">
-            <div class="work-stat-num serif">5</div>
-            <div class="work-stat-text">Destination films</div>
+            <div class="work-stat-num serif">25</div>
+            <div class="work-stat-text">Films and travel episodes across three series</div>
           </div>
           <div class="work-stat">
-            <div class="work-stat-num serif">25+</div>
-            <div class="work-stat-text">City guides</div>
+            <div class="work-stat-num serif">26</div>
+            <div class="work-stat-text">In-depth city guides</div>
           </div>
           <div class="work-stat">
-            <div class="work-stat-num serif">16</div>
-            <div class="work-stat-text">Long-form travel articles</div>
+            <div class="work-stat-num serif">17</div>
+            <div class="work-stat-text">Long-form journal articles, about 40,000 words</div>
           </div>
           <div class="work-stat">
             <div class="work-stat-num serif">6</div>
-            <div class="work-stat-text">Multi-day route plans</div>
+            <div class="work-stat-text">Day-by-day route itineraries, 7 to 14 days</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">447 km</div>
+            <div class="work-stat-text">Lycian Way trail guide with live map and GPX downloads</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">160</div>
+            <div class="work-stat-text">Restaurant and place recommendations, mapped</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">490+</div>
+            <div class="work-stat-text">Original photographs</div>
+          </div>
+          <div class="work-stat">
+            <div class="work-stat-num serif">1</div>
+            <div class="work-stat-text">First-time visitor guide to Türkiye</div>
           </div>
         </div>
+
+        <p class="recog-title" style="margin-top: 2.5rem;">Film series</p>
+        <ul class="recog-list">
+          <li class="recog-item">
+            <div class="recog-year">6</div>
+            <div>
+              <p class="recog-award">Show Me Türkiye</p>
+              <p class="recog-meta">Flagship cinematic destination films, made with tourism authorities and municipalities.</p>
+            </div>
+          </li>
+          <li class="recog-item">
+            <div class="recog-year">2</div>
+            <div>
+              <p class="recog-award">Skies of Türkiye</p>
+              <p class="recog-meta">An aerial series on Türkiye's landscapes, from volcanic plateaus to the coast.</p>
+            </div>
+          </li>
+          <li class="recog-item">
+            <div class="recog-year">17</div>
+            <div>
+              <p class="recog-award">Let Me Show You Türkiye</p>
+              <p class="recog-meta">A personal travel series on culture, food and people, filmed on the road.</p>
+            </div>
+          </li>
+        </ul>
+        <p style="margin-top: 1.5rem;"><a href="https://showmeturkiye.com" target="_blank" rel="noopener" class="team-link" style="color: var(--gold-soft);">Visit showmeturkiye.com &rarr;</a></p>
       </div>
 
       <div class="reveal">
@@ -982,7 +1026,7 @@ section p.label {
         <h2 class="serif">Halil Bekar, director &amp; creator of Show Me Türkiye</h2>
         <p>Halil Bekar is a director and cinematographer who has spent close to a decade making travel films for tourism authorities, municipalities and global brands. He created Show Me Türkiye, the English-language film and travel project that Show Me Kuwait is modeled on.</p>
         <p>His work brings together film production, social media and creator marketing into programs that change how the world sees a place, and he measures them by the audiences they reach.</p>
-        <p style="margin-top: 1.5rem;"><a href="https://instagram.com/halilbekar" target="_blank" rel="noopener" class="team-link">Follow Halil on Instagram &rarr;</a> &nbsp; <a href="https://www.youtube.com/@halilbekar" target="_blank" rel="noopener" class="team-link">YouTube &rarr;</a></p>
+        <p style="margin-top: 1.5rem;"><a href="https://instagram.com/halilbekar" target="_blank" rel="noopener" class="team-link">Check out Halil on Instagram &rarr;</a> &nbsp; <a href="https://www.youtube.com/@halilbekar" target="_blank" rel="noopener" class="team-link">Check out YouTube &rarr;</a></p>
       </div>
       <div class="team-right reveal">
         <div class="team-card">
